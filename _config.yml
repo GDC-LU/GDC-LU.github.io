@@ -1,0 +1,6 @@
+exclude:
+- Gemfile
+
+safe: false
+lsi: true
+highlighter: pygments
