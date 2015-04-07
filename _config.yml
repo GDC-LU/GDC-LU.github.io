@@ -4,3 +4,6 @@ exclude:
 safe: false
 lsi: true
 highlighter: pygments
+
+sass:
+    style: :compressed

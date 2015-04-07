@@ -1,0 +1,82 @@
+<header id="header" class="{{ include.header_class }}" role="banner">
+  <div class="header-row clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 absolute-header text-uppercase">
+          <div class="pull-left">
+            <div class="upcoming-event-bar">
+              Next Event in:
+              <div id="counter" class="counter" data-date="May 31, 2015">
+                <div class="timer-col"> <span id="days"></span> <span class="timer-type">d</span> </div>
+                <div class="timer-col"> <span id="hours"></span> <span class="timer-type">h</span> </div>
+                <div class="timer-col"> <span id="minutes"></span> <span class="timer-type">m</span> </div>
+                <div class="timer-col"> <span id="seconds"></span> <span class="timer-type">s</span> </div>
+              </div>
+            </div>
+          </div>
+          <span style="clear:both">&nbsp;</span>
+          <div class="pull-right">
+            <a href="/"><span class="weather">ENGLISH <img src="/images/en.png" alt=""></span></a>
+            <a href="/"><span class="weather">FRAN&Ccedil;AIS <img src="/images/fr.png" alt=""></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav role="navigation" id="main-nav">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <a href="/" id="logo"><img src="http://www.placehold.it/166x30" alt=""></a>
+            <input type="checkbox" id="toggle-main-nav" class="toggle-nav-input">
+            <ul id="menu-main-menu" class="menu">
+              <li class="menu-item menu-item-type-post_type menu-item-object-page page_item{% if page.path == 'index.html' %} current-menu-item current_page_item{% endif %}">
+                <a href="/">Home</a>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-parent-item{% if page.path contains 'events/' %} current-menu-item current_page_item{% endif %}">
+                <a href="/events">Dates &amp; Charities</a>
+                <ul class="sub-menu">
+                  {% for charity in site.data.charities | sort: 'date' %}
+                  <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/events/{{ charity.date }}.html">{{ charity.display_date }} - {{ charity.name }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </li>
+              <li class="menu-item menu-item-type-custom menu-item-object-custom{% if page.path == 'us.html' %} current-menu-item current_page_item{% endif %}">
+                <a href="/us.html">Qui sommes-nous?</a>
+              </li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-parent-item{% if page.path == 'contact.html' %} current-menu-item current_page_item{% endif %}">
+                <a href="/contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <nav role="navigation" id="secondary-nav">
+      <div class="container">
+        <input type="checkbox" class="toggle-nav-input" id="toggle-secondary-nav">
+        <ul class="menu">
+          {% for charity in site.data.charities | sort: 'date' %}
+          <li class="menu-item">
+            <a href="/events/{{ charity.date }}.html">{{ charity.display_date}} <em>{{ charity.name }}</em></a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+    <label class="toggle-nav-label" for="toggle-main-nav"> Menu</label>
+    <label class="toggle-nav-label" for="toggle-secondary-nav"> Ev&egrave;nements</label>
+  </div>
+  <div id="page-heading">
+    <div class="container">
+      <div class="row">
+        {% if page.path != 'index.html' %}
+        <div class="col-sm-12">
+          <h1 class="page-title">{{ page.title }}</h1>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>

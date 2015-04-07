@@ -1,0 +1,31 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Gentlemen Drivers Club - {{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="/images/favicon.ico" rel="icon" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Domine:400,700%7CRoboto:400,300,500,700,900" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="/css/style.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div id="site">
+      {% include header.html header_class=page.header_class %}
+      {{ content }}
+      {% include footer.html %}
+    </div>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/waypoints-sticky.min.js"></script>
+    <script src="/js/jquery.velocity.min.js"></script>
+    <script src="/js/velocity.ui.js"></script>
+    <script src="/js/jquery.countdown.min.js"></script>
+    <script src="/js/init.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
