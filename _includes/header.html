@@ -6,7 +6,12 @@
 {% else %}
   {% assign language = 'en' %}
 {% endif %}
-<header id="header" class="{{ include.header_class }}" role="banner">
+<header id="header"
+        class="{{ include.header_class }}"
+        {% if page.header_background %}
+          style="background-image: url('/images/{{ page.header_background }}');"
+        {% endif %}
+        role="banner">
   <div class="header-row clearfix">
     <div class="container">
       <div class="row">
