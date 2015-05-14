@@ -1,16 +1,74 @@
 ---
-- date: 2015-05-31
-  display_date: 31 Mai 2015
+- id: kannerduerf
+  date: 2015-05-31
   name: Lëtzebuerger Kannerduerf
-- date: 2015-07-05
+  bullet_type: jpg
+  localized:
+    day:
+      en: 31
+      de: 31
+      fr: 31
+    monthyear:
+      en: May 2015
+      de: Mai 2015
+      fr: Mai 2015
+
+- id: pimpampel
+  date: 2015-07-05
   display_date: 05 Juillet 2015
   name: Les Pimpampel ASBL
-- date: 2015-08-02
+  bullet_type: jpg
+  localized:
+    day:
+      en: 05
+      de: 05
+      fr: 05
+    monthyear:
+      en: July 2015
+      de: Juli 2015
+      fr: Juillet 2015
+
+- id: ile-aux-clowns
+  date: 2015-08-02
   display_date: 02 Août 2015
   name: Îles Aux Clowns ASBL
-- date: 2015-08-23
+  bullet_type: jpg
+  localized:
+    day:
+      en: 02
+      de: 02
+      fr: 02
+    monthyear:
+      en: August 2015
+      de: August 2015
+      fr: Août 2015
+
+- id: make-a-wish
+  date: 2015-08-23
   display_date: 23 Août 2015
   name: Make-A-Wish Luxembourg ASBL
-- date: 2015-09-27
+  bullet_type: png
+  localized:
+    day:
+      en: 23
+      de: 23
+      fr: 23
+    monthyear:
+      en: August 2015
+      de: August 2015
+      fr: Août 2015
+
+- id: alupse
+  date: 2015-09-27
   display_date: 27 Septembre 2015
   name: Alupse ASBL
+  bullet_type: jpg
+  localized:
+    day:
+      en: 27
+      de: 27
+      fr: 27
+    monthyear:
+      en: September 2015
+      de: September 2015
+      fr: Septembre 2015

@@ -10,35 +10,27 @@
         Mail info@gdc.lu</p>
       </aside>
       <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-        <h5 class="widget-title">Le projet</h5>
+        <h5 class="widget-title">{{ site.data.localized.[language].the_project }}</h5>
         <p><br>
-          <a href="index.html">Découvrez le projet</a><br>
+          <a href="{{ prefix }}">{{ site.data.localized.[language].disover_the_project }}</a><br>
         </p>
       </aside>
       <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-        <h5 class="widget-title">Les &eacute;v&egrave;nements</h5>
+        <h5 class="widget-title">{{ site.data.localized.[language].the_events }}</h5>
         <p><br>
-          <a href="310515-lukannerduerf.html">L&euml;tzebuerger Kannerduerf</a><br>
-          <a href="050715-pimpampel.html">Les Pimpampel</a><br>
-          <a href="020815-ilesauxclowns.html">Iles aux Clowns</a><br>
-          <a href="230815-makeawishlu.html">Make-A-Wish Luxembourg</a><br>
-          <a href="270915-alupse.html">Alupse</a><br>
+          {% for charity in site.data.charities | sort: 'date' %}
+            <a href="{{ prefix }}/events/{{ charity.date }}.html">{{ charity.name }}</a><br>
+          {% endfor %}
         </p>
       </aside>
       <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-        <h5 class="widget-title">Qui sommes-nous</h5>
+        <h5 class="widget-title">{{ site.data.localized.[language].who_are_we }}</h5>
         <p><br>
-          <a href="us.html">Découvrez Make-a-Wish Luxembourg</a><br>
+          <a href="us.html">{{ site.data.localized.[language].discover_maw }}</a><br>
         </p>
       </aside>
       <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-        <h5 class="widget-title">Contact</h5>
-        <p><br>
-          <a href="contact.html">Formulaire de contact</a><br>
-        </p>
-      </aside>
-      <aside class="col-lg-2 col-md-3 col-sm-4 widget">
-        <a href="index.html"><img src="http://www.placehold.it/166x30" alt=""></a>
+        <a href="/" id="logo" style="padding-top: 10px; padding-bottom: 0;"><img src="/images/logos/cars-and-coffee.png" style="height: 100px;" alt=""></a>
       </aside>
     </div>
     <div class="row" id="absolute-footer">

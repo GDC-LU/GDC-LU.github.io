@@ -1,3 +1,11 @@
+{% assign language = (page.path | split: '/' | first) %}
+{% if language == 'de' %}
+  {% assign prefix = '/de' %}
+{% elsif language == 'fr' %}
+  {% assign prefix = '/fr' %}
+{% else %}
+  {% assign language = 'en' %}
+{% endif %}
 <header id="header" class="{{ include.header_class }}" role="banner">
   <div class="header-row clearfix">
     <div class="container">
@@ -5,7 +13,7 @@
         <div class="col-sm-12 absolute-header text-uppercase">
           <div class="pull-left">
             <div class="upcoming-event-bar">
-              Next Event in:
+              {{ site.data.localized.[language].next_event_in }}
               <div id="counter" class="counter" data-date="May 31, 2015">
                 <div class="timer-col"> <span id="days"></span> <span class="timer-type">d</span> </div>
                 <div class="timer-col"> <span id="hours"></span> <span class="timer-type">h</span> </div>
@@ -23,34 +31,28 @@
         </div>
       </div>
     </div>
-    {% assign language = (page.path | split: '/' | first) %}
-    {% if language == 'de' %}
-      {% assign prefix = '/de' %}
-    {% elsif language == 'fr' %}
-      {% assign prefix = '/fr' %}
-    {% endif %}
     <nav role="navigation" id="main-nav">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <a href="/" id="logo" style="padding-top: 10px; padding-bottom: 0;"><img src="/images/logos/cars-and-coffee.png" style="height: 60px;" alt=""></a>
+            <a href="{{ prefix }}/" id="logo" style="padding-top: 10px; padding-bottom: 0;"><img src="/images/logos/cars-and-coffee.png" style="height: 60px;" alt=""></a>
             <input type="checkbox" id="toggle-main-nav" class="toggle-nav-input">
             <ul id="menu-main-menu" class="menu">
               <li class="menu-item menu-item-type-post_type menu-item-object-page page_item{% if page.path == 'index.html' %} current-menu-item current_page_item{% endif %}">
                 <a href="{{ prefix }}/">Home</a>
               </li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-parent-item{% if page.path contains 'events/' %} current-menu-item current_page_item{% endif %}">
-                <a href="/events">Dates &amp; Charities</a>
+                <a href="{{ prefix }}/events">{{ site.data.localized.[language].dates_and_charities }}</a>
                 <ul class="sub-menu">
                   {% for charity in site.data.charities | sort: 'date' %}
                   <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a href="{{ prefix }}/events/{{ charity.date }}.html">{{ charity.display_date }} - {{ charity.name }}</a>
+                    <a href="{{ prefix }}/events/{{ charity.date }}.html">{{ charity.localized.day.[language] }} {{ charity.localized.monthyear.[language] }} - {{ charity.name }}</a>
                   </li>
                   {% endfor %}
                 </ul>
               </li>
               <li class="menu-item menu-item-type-custom menu-item-object-custom{% if page.path == 'us.html' %} current-menu-item current_page_item{% endif %}">
-                <a href="{{ prefix }}/us.html">Who are we?</a>
+                <a href="{{ prefix }}/us.html">{{ site.data.localized.[language].who_are_we }}</a>
               </li>
             </ul>
           </div>
@@ -63,7 +65,7 @@
         <ul class="menu">
           {% for charity in site.data.charities | sort: 'date' %}
           <li class="menu-item">
-            <a href="{{ prefix }}/events/{{ charity.date }}.html">{{ charity.display_date}} <em>{{ charity.name }}</em></a>
+            <a href="{{ prefix }}/events/{{ charity.date }}.html">{{ charity.localized.day.[language] }} {{ charity.localized.monthyear.[language] }} <em>{{ charity.name }}</em></a>
           </li>
           {% endfor %}
         </ul>
